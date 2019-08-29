@@ -1,0 +1,21 @@
+{
+  "name": "scan-uploader",
+  "version": "1.0.0",
+  "description": "Uploads scans to google spreadsheets",
+  "main": "app.js",
+  "scripts": {
+    "start": "node --no-warnings app.js"
+  },
+  "pkg": {
+    "assets": [
+      "node_modules/**/*"
+    ]
+  },
+  "bin": "app.js",
+  "author": "Nynu",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "googleapis": "^42.0.0"
+  }
+}
