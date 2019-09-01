@@ -2,6 +2,7 @@ spreadsheetConfig.json
 client_secret.json
 raw_scans/
 sheet_scans/
+uploaded_scans/
 
 # Logs
 logs

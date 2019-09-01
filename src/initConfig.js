@@ -57,6 +57,14 @@ module.exports = async function configurateSettings() {
   }
   
   interface.close();
+
+  try {
+    await fs.mkdir('./uploaded_scans');
+    console.log(chalk`{blue Could not find {yellowBright uploaded_scans} directory, creating one}`);
+  } catch(e) {
+    console.log(chalk`{yellowBright uploaded_scans} {blue directory was found}`);
+  }
+
   return settings.url;
 }
 

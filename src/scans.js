@@ -35,3 +35,11 @@ async function getScanData(fileList) {
     console.log(chalk.red('Failed to read the scan files'));
   }
 }
+
+module.exports.moveScanFile = async function(filename) {
+  try {
+    await fs.rename(`./sheet_scans/${filename}.txt`, `./uploaded_scans/${filename}.txt`);
+  } catch(e) {
+    console.log(chalk.red('Was not able to move file to uploaded_scans directory'));
+  }
+}

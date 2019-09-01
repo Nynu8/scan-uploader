@@ -14,6 +14,7 @@ const readline = require('readline');
       if (!sheets.sheetArray.hasOwnProperty(scan)) {
         console.log(chalk.yellowBright(scan));
         await spreadsheet.uploadScan(url, scan, scanData[scan]);
+        await scans.moveScanFile(scan);
       } else {
         let interface = readline.createInterface({
           input: process.stdin,
@@ -33,10 +34,12 @@ const readline = require('readline');
         interface.close();
         if(answer === '' || answer.toLowerCase() === 'n') {
           console.log(chalk.blue('Overwrite canceled\n'));
+          await scans.moveScanFile(scan);
         }
 
         if(answer.toLowerCase() === 'y') {
           await spreadsheet.overwrite(url, scan, scanData[scan]);
+          await scans.moveScanFile(scan); 
         }
       }
     }
